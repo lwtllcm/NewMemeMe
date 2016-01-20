@@ -12,6 +12,7 @@
 		5B59908C1C4308320020E5F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B59908A1C4308320020E5F8 /* Main.storyboard */; };
 		5B59908E1C4308320020E5F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B59908D1C4308320020E5F8 /* Assets.xcassets */; };
 		5B5990911C4308320020E5F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B59908F1C4308320020E5F8 /* LaunchScreen.storyboard */; };
+		5B86F6801C47649E00579F50 /* TestTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B86F67F1C47649E00579F50 /* TestTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		5B59908D1C4308320020E5F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B5990901C4308320020E5F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B5990921C4308320020E5F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B86F67F1C47649E00579F50 /* TestTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				5B5990861C4308320020E5F8 /* AppDelegate.swift */,
+				5B86F67F1C47649E00579F50 /* TestTextFieldDelegate.swift */,
 				5B5990881C4308320020E5F8 /* ViewController.swift */,
 				5B59908A1C4308320020E5F8 /* Main.storyboard */,
 				5B59908D1C4308320020E5F8 /* Assets.xcassets */,
@@ -137,6 +140,7 @@
 			files = (
 				5B5990891C4308320020E5F8 /* ViewController.swift in Sources */,
 				5B5990871C4308320020E5F8 /* AppDelegate.swift in Sources */,
+				5B86F6801C47649E00579F50 /* TestTextFieldDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +288,7 @@
 				5B5990971C4308320020E5F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
