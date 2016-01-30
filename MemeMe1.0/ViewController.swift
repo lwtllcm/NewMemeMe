@@ -10,41 +10,39 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    //@IBOutlet weak var topText: UITextField!
-
-   // @IBOutlet weak var bottomText: UITextField!
     
-    //var testImage:UIImageView!
-    //var testTopText:UITextField!
-    //var testToolBar:UIToolbar!
-    
-    
-    
+    //outlets
     @IBOutlet weak var imagePickerView: UIImageView!
     
     @IBOutlet weak var topText: UITextField!
     
     @IBOutlet weak var bottomText: UITextField!
     
+    //delegate
     let testTextFieldDelegate = TestTextFieldDelegate()
     
+    //memeTextAttributes
     let memeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : 3.0
+        NSStrokeWidthAttributeName : -5.0
     ]
     
+    //buttons
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
+    
+    // meme struct
     struct Meme {
         var memeTopText: NSString
         var memeBottomText: NSString
-        var memeImage: UIImage
+        var originalImage: UIImage
+        var memedImage: UIImage
     }
  
     
@@ -53,21 +51,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
+        
+        imagePickerView.backgroundColor = UIColor.blackColor()
+        
+        topText.backgroundColor = UIColor.clearColor()
         topText.defaultTextAttributes = memeTextAttributes
         topText.textAlignment = NSTextAlignment.Center
         topText.text = "TOP"
-        
         topText.delegate = testTextFieldDelegate
         
-        //topText.delegate = self
-        
         bottomText.defaultTextAttributes = memeTextAttributes
+        bottomText.backgroundColor = UIColor.clearColor()
         bottomText.text = "BOTTOM"
         bottomText.textAlignment = NSTextAlignment.Center
         bottomText.delegate = testTextFieldDelegate
         
-        //bottomText.delegate = self
-        
+        shareButton.enabled = false
        }
     
     override func viewWillAppear(animated: Bool) {
@@ -75,8 +74,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         super.viewWillAppear(animated)
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
-        shareButton.enabled = false
-                
         self.subscribeToKeyboardNotifications()
         self.subscribeToKeyboardWillHideNotifications()
     }
@@ -86,9 +83,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardNotifications()
     }
-    
-    
-    
     
     //pick image methods
     
@@ -113,15 +107,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
         self.imagePickerView.image = image
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        saveMeme()
+        
+        self.dismissViewControllerAnimated(true, completion:{() -> Void in
+            self.shareButton.enabled = true
+        })
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         print("imagePickerControllerDidCancel")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
     
     //keyboard methods
     
@@ -146,13 +142,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     func subscribeToKeyboardNotifications() {
         print("subscribeToKeyboardNotifications")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillShowNotification, object: nil)
     }
     
     func subscribeToKeyboardWillHideNotifications() {
         print("subscribeToKeyboardNotifications")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillShowNotification, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
@@ -181,7 +175,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //meme methods
     func saveMeme() {
         print("saveMeme")
-        let meme = Meme( memeTopText: topText.text!, memeBottomText: bottomText.text!, memeImage: imagePickerView.image!)
+        let meme = Meme(
+            memeTopText: topText.text!,
+            memeBottomText: bottomText.text!,
+            originalImage: imagePickerView.image!,
+            memedImage: imagePickerView.image!)
+        print(meme)
+        shareButton.enabled = true
     }
     
     func generateMemedImage() -> UIImage {
@@ -195,13 +195,33 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
-        let image = UIImage()
-        let shareController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        print("shareMeme")
+        
+        let memedImage = generateMemedImage()
+       
+        
+        let shareController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        
+        //helpful info on completion block https://discussions.udacity.com/t/im-not-understanding-the-uiactivityviewcontroller-completionwithitemshandler/14271/9
+        
+        shareController.completionWithItemsHandler = {activity, completed, items, error in
+            if completed {
+                self.saveMeme()
+                self.dismissViewControllerAnimated(true, completion: nil)
+                }
+            }
+        
         self.presentViewController(shareController, animated: true, completion: nil)
-        
-        //shareController.completionWithItemsHandler = saveMeme(memedImage)
-        shareController.dismissViewControllerAnimated(true, completion: nil)
-        
-    }
+     }
     
+    @IBAction func cancelButtonAction(sender: AnyObject) {
+        print("cancelButtonAction")
+        var initialController:ViewController
+        
+        initialController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as!
+            ViewController
+               
+        presentViewController(initialController, animated: true, completion: nil)
+           }
 }
