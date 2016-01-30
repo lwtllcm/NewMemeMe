@@ -13,6 +13,7 @@
 		5B59908E1C4308320020E5F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B59908D1C4308320020E5F8 /* Assets.xcassets */; };
 		5B5990911C4308320020E5F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B59908F1C4308320020E5F8 /* LaunchScreen.storyboard */; };
 		5B86F6801C47649E00579F50 /* TestTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B86F67F1C47649E00579F50 /* TestTextFieldDelegate.swift */; };
+		5BE33D1C1C5D257D00AAD515 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE33D1B1C5D257D00AAD515 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5B5990901C4308320020E5F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B5990921C4308320020E5F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B86F67F1C47649E00579F50 /* TestTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTextFieldDelegate.swift; sourceTree = "<group>"; };
+		5BE33D1B1C5D257D00AAD515 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				5B59908D1C4308320020E5F8 /* Assets.xcassets */,
 				5B59908F1C4308320020E5F8 /* LaunchScreen.storyboard */,
 				5B5990921C4308320020E5F8 /* Info.plist */,
+				5BE33D1B1C5D257D00AAD515 /* Meme.swift */,
 			);
 			path = MemeMe1.0;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B5990891C4308320020E5F8 /* ViewController.swift in Sources */,
+				5BE33D1C1C5D257D00AAD515 /* Meme.swift in Sources */,
 				5B5990871C4308320020E5F8 /* AppDelegate.swift in Sources */,
 				5B86F6801C47649E00579F50 /* TestTextFieldDelegate.swift in Sources */,
 			);
