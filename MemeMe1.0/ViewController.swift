@@ -174,6 +174,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             memeBottomText: bottomText.text!,
             originalImage: imagePickerView.image!,
             memedImage: imagePickerView.image!)
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
         print(meme)
         shareButton.enabled = true
     }
