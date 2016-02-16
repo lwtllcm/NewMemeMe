@@ -169,13 +169,27 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //meme methods
     func saveMeme() {
         print("saveMeme")
+        
         let meme = Meme(
             memeTopText: topText.text!,
             memeBottomText: bottomText.text!,
             originalImage: imagePickerView.image!,
             memedImage: imagePickerView.image!)
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+        
+        //(UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
+        //var memesArray = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        //memesArray.append(meme)
         print(meme)
+        
+       // let memesTest = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        
+        //print(memesTest.count)
+        
         shareButton.enabled = true
     }
     
