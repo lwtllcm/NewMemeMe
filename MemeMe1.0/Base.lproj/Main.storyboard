@@ -362,20 +362,35 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RA1-Al-OIx">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="107" y="140" width="213" height="175"/>
-                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RA1-Al-OIx" firstAttribute="leading" secondItem="puO-55-auQ" secondAttribute="leadingMargin" id="YSZ-UR-gou"/>
+                            <constraint firstItem="RA1-Al-OIx" firstAttribute="trailing" secondItem="puO-55-auQ" secondAttribute="trailingMargin" id="jeR-O1-T1W"/>
+                            <constraint firstItem="RA1-Al-OIx" firstAttribute="top" secondItem="cSA-Ch-PeZ" secondAttribute="bottom" constant="55" id="pmz-Wh-buN"/>
+                            <constraint firstItem="UAk-pe-tAl" firstAttribute="top" secondItem="RA1-Al-OIx" secondAttribute="bottom" constant="235" id="vEb-Uu-Qao"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="RA1-Al-OIx"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="vEb-Uu-Qao"/>
+                                <exclude reference="YSZ-UR-gou"/>
+                                <exclude reference="jeR-O1-T1W"/>
+                                <exclude reference="pmz-Wh-buN"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="RA1-Al-OIx"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="vEb-Uu-Qao"/>
+                                <include reference="YSZ-UR-gou"/>
+                                <include reference="jeR-O1-T1W"/>
+                                <include reference="pmz-Wh-buN"/>
                             </mask>
                         </variation>
                     </view>
@@ -387,11 +402,11 @@
             </objects>
             <point key="canvasLocation" x="1965" y="1258"/>
         </scene>
-        <!--Item 1-->
+        <!--Table-->
         <scene sceneID="jQe-vu-tiY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5n8-af-Iqq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="JHK-z7-4gz"/>
+                    <tabBarItem key="tabBarItem" title="Table" id="JHK-z7-4gz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oT6-s7-kvb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -406,11 +421,11 @@
             </objects>
             <point key="canvasLocation" x="157.5" y="569"/>
         </scene>
-        <!--Item-->
+        <!--Collection-->
         <scene sceneID="nGb-Fk-2aZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k5M-2i-Nis" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bds-nS-JiM"/>
+                    <tabBarItem key="tabBarItem" title="Collection" id="bds-nS-JiM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJl-lr-xpK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

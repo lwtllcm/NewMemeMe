@@ -172,11 +172,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     func saveMeme() {
         print("saveMeme")
         
+        
+        
         let meme = Meme(
             memeTopText: topText.text!,
             memeBottomText: bottomText.text!,
             originalImage: imagePickerView.image!,
-            memedImage: imagePickerView.image!)
+            memedImage: generateMemedImage())
         
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate

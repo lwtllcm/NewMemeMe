@@ -60,6 +60,7 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
         let meme = memes[indexPath.item]
         //memeCell.setText(meme.memeTopText, bottomString:meme.memeBottomText)
         let imageView = UIImageView(image: meme.memedImage)
+    
         memeCell.backgroundView = imageView
         
         
