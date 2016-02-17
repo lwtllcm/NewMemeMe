@@ -60,6 +60,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         bottomText.delegate = testTextFieldDelegate
         
         shareButton.enabled = false
+        
+        
        }
     
     override func viewWillAppear(animated: Bool) {
@@ -226,11 +228,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     @IBAction func cancelButtonAction(sender: AnyObject) {
         print("cancelButtonAction")
-        var initialController:ViewController
         
-        initialController = storyboard?.instantiateViewControllerWithIdentifier("ViewController") as!
-            ViewController
+        //var initialController:ViewController
+        
+        
+        //initialController = storyboard?.instantiateViewControllerWithIdentifier("ViewController") as!
+        //    ViewController
                
-        presentViewController(initialController, animated: true, completion: nil)
+       // presentViewController(initialController, animated: true, completion: nil)
+        
+       
+    
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
            }
+
+        
+    
+    
 }

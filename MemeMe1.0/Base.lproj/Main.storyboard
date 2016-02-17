@@ -163,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="1968" y="569"/>
         </scene>
-        <!--Sent Memes Table-->
+        <!--MemeTableViewController-->
         <scene sceneID="ami-va-V9O">
             <objects>
-                <viewController id="1Mj-ls-StP" customClass="MemeTableViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeTableViewController" title="MemeTableViewController" id="1Mj-ls-StP" customClass="MemeTableViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nnC-Wq-toV"/>
                         <viewControllerLayoutGuide type="bottom" id="mNY-He-aRQ"/>
@@ -213,9 +213,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="78" width="400" height="473"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="1Mj-ls-StP" id="a4V-44-n8C"/>
                                     <outlet property="delegate" destination="1Mj-ls-StP" id="wRs-bt-00R"/>
@@ -223,14 +220,32 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Acg-rY-7KO" firstAttribute="top" secondItem="nnC-Wq-toV" secondAttribute="bottom" constant="14" id="X38-gm-MrO"/>
+                            <constraint firstItem="Acg-rY-7KO" firstAttribute="leading" secondItem="iqX-Hq-Cbd" secondAttribute="leadingMargin" constant="-20" id="XZw-yb-eEU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Acg-rY-7KO" secondAttribute="trailing" constant="-20" id="cDJ-mZ-ggD"/>
+                            <constraint firstItem="mNY-He-aRQ" firstAttribute="top" secondItem="Acg-rY-7KO" secondAttribute="bottom" id="hyo-6a-Aws"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Acg-rY-7KO"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="hyo-6a-Aws"/>
+                                <exclude reference="X38-gm-MrO"/>
+                                <exclude reference="XZw-yb-eEU"/>
+                                <exclude reference="cDJ-mZ-ggD"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Acg-rY-7KO"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="hyo-6a-Aws"/>
+                                <include reference="X38-gm-MrO"/>
+                                <include reference="XZw-yb-eEU"/>
+                                <include reference="cDJ-mZ-ggD"/>
                             </mask>
                         </variation>
                     </view>
@@ -415,6 +430,6 @@
         <image name="testImage" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dqo-dr-tzi"/>
+        <segue reference="hzV-sV-NFN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -88,6 +88,7 @@ class  MemeTableViewController : UIViewController, UITableViewDelegate, UITableV
         //memeCell.textLabel?.text = memes[indexPath.row].memeTopText as String
         
         memeCell.textLabel?.text = meme.memeTopText as String
+        memeCell.detailTextLabel?.text = meme.memeBottomText as String
         memeCell.imageView?.image = meme.memedImage
        // memeCell.textLabel?.text = testMeme
         
