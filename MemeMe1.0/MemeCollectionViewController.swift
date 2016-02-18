@@ -6,6 +6,7 @@
 //  Copyright © 2016 Student. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class  MemeCollectionViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -57,11 +58,15 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         print("MemeCollectionViewController cellForItemAtIndexPath")
         let memeCell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
-        let meme = memes[indexPath.item]
+        //let meme = memes[indexPath.item]
+        
+        let meme = memes[indexPath.row]
+        
         //memeCell.setText(meme.memeTopText, bottomString:meme.memeBottomText)
-        let imageView = UIImageView(image: meme.memedImage)
+        //let imageView = UIImageView(image: meme.memedImage)
     
-        memeCell.backgroundView = imageView
+        //memeCell.backgroundView = imageView
+        memeCell.memeImageView.image = meme.memedImage
         
         
         return memeCell
@@ -76,7 +81,7 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
         presentViewController(viewController, animated: true, completion: nil)
     }
     
-    func tableView(tableView: UITableView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     print("didSelectItemAtIndexPath")
     
     /*
@@ -92,6 +97,8 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
     let meme = memes[indexPath.row]
     detailViewController.meme = meme
     self.navigationController?.pushViewController(detailViewController, animated: true)
+        
+        
    
     }
 }
