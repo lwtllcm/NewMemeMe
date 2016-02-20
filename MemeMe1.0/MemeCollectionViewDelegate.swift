@@ -12,6 +12,5 @@ import UIKit
 class  MemeCollectionViewDelegate: NSObject, UICollectionViewDelegate {
     
     func tableView(tableView: UITableView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("didSelectRowAtIndexPath")
-    }    
+    }
 }
