@@ -10,14 +10,6 @@ import Foundation
 import UIKit
 
 class  MemeTableViewDelegate: NSObject, UITableViewDelegate {
-    /*
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("didSelectRowAtIndexPath")
-        let detailViewController = DetailViewController()
-        
-        
-    }
-*/
-    
+ 
     
 }

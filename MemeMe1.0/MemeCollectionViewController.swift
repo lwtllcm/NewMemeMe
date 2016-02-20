@@ -17,47 +17,30 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
         return appDelegate.memes
     }
     
-       
     @IBOutlet var collectionView: UICollectionView!
 
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
    
-    
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-         print("MemeCollectionViewController viewDidLoad")
-        
+        print("MemeCollectionViewController viewDidLoad")
         let space: CGFloat = 3.0
         //let dimension = (view.frame.size.width - (2 * space) / 3.0)
-        
-        
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         
         //flowLayout.itemSize = CGSizeMake(dimension, dimension)
         
-        
         flowLayout.itemSize = CGSizeMake(100.0, 100.0)
- 
-        
-        
-        print(memes.count)
     }
     
     override func viewWillAppear(animated: Bool) {
         print("MemeCollectionViewController viewWillAppear")
-
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = false
-        print(memes.count)
         self.collectionView.reloadData()
-
     }
-    
-    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("collectionView numberOfItemsInSection")
@@ -67,51 +50,24 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         print("MemeCollectionViewController cellForItemAtIndexPath")
         let memeCell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
-        //let meme = memes[indexPath.item]
-        
         let meme = memes[indexPath.row]
         
-        //memeCell.setText(meme.memeTopText, bottomString:meme.memeBottomText)
-        //let imageView = UIImageView(image: meme.memedImage)
-    
-        //memeCell.backgroundView = imageView
-      //  memeCell.memeImageView.contentMode = .ScaleAspectFit
-        
-        //memeCell.backgroundColor = UIColor.yellowColor()
-        
         memeCell.memeImageView.image = meme.memedImage
-        
-        
         return memeCell
     }
     
     @IBAction func addMeme(sender: AnyObject) {
         print("addMeme")
-        
         let viewController = ViewController()
-        
-        
         presentViewController(viewController, animated: true, completion: nil)
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     print("didSelectItemAtIndexPath")
     
-    /*
-    let detailViewController = DetailViewController()
-    let meme = memes[indexPath.row]
-    detailViewController.detailImage = meme.memedImage
-    
-    //let detailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as!UIViewController
-    self.navigationController?.pushViewController(detailViewController, animated: true)
-    */
-    
     let detailViewController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
     let meme = memes[indexPath.row]
     detailViewController.meme = meme
     self.navigationController?.pushViewController(detailViewController, animated: true)
-        
-        
-   
     }
 }

@@ -13,21 +13,5 @@ struct Meme {
     var memeBottomText: NSString
     var originalImage: UIImage
     var memedImage: UIImage
-    /*
-    init(
-        memeTopText: "abc"
-        memeBottomText = "def",
-        originalImage = UIImage(named: "")!,
-        memedImage = UIImage(named: "")!)
-    }
-*/
-    /*
-    init() {
-        memeTopText = "abc"
-        memeBottomText = "def"
-        originalImage = UIImage(named: "")!
-        memedImage = UIImage(named: "")!
-    }
-  */  
 }
 

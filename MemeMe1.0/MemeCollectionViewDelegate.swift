@@ -13,13 +13,5 @@ class  MemeCollectionViewDelegate: NSObject, UICollectionViewDelegate {
     
     func tableView(tableView: UITableView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print("didSelectRowAtIndexPath")
-        /*
-        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")
-        let memeDetailViewController = object as! MemeDetailViewController
-        memeDetailViewController.image = memes[indexPath.row]
-        
-        navigationController!.pushViewController(memeDetailViewController, animated:true)
-*/
-    }
-    
+    }    
 }

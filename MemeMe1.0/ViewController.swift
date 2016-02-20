@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
     
     //outlets
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -60,9 +59,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         bottomText.delegate = testTextFieldDelegate
         
         shareButton.enabled = false
-        
-        
-       }
+    }
     
     override func viewWillAppear(animated: Bool) {
         print("viewWillAppear")
@@ -101,7 +98,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
          print("didFinishPickingImage")
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
         imagePickerView.image = image
-            
         }
         
         dismissViewControllerAnimated(true, completion:{() -> Void in
@@ -156,7 +152,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     
-    
     //text methods
     func textFieldDidBeginEditing( textField: UITextField) {
         print("textFieldDidBeginEditing")
@@ -171,9 +166,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //meme methods
     func saveMeme() {
         print("saveMeme")
-        
-        
-        
         let meme = Meme(
             memeTopText: topText.text!,
             memeBottomText: bottomText.text!,
@@ -183,16 +175,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-        
-        //(UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
-        
-        //var memesArray = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
-        //memesArray.append(meme)
-        print(meme)
-        
-       // let memesTest = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
-        
-        //print(memesTest.count)
         
         shareButton.enabled = true
     }
@@ -211,10 +193,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         print("shareMeme")
         
         let memedImage = generateMemedImage()
-       
-        
         let shareController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        
         
         //helpful info on completion block https://discussions.udacity.com/t/im-not-understanding-the-uiactivityviewcontroller-completionwithitemshandler/14271/9
         
@@ -231,21 +210,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBAction func cancelButtonAction(sender: AnyObject) {
         print("cancelButtonAction")
         
-        //var initialController:ViewController
-        
-        
-        //initialController = storyboard?.instantiateViewControllerWithIdentifier("ViewController") as!
-        //    ViewController
-               
-       // presentViewController(initialController, animated: true, completion: nil)
-        
-       
-    
         self.dismissViewControllerAnimated(true, completion: nil)
-        
            }
-
-        
-    
-    
 }
