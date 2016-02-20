@@ -30,12 +30,9 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
          print("MemeCollectionViewController viewDidLoad")
         
         let space: CGFloat = 3.0
-        let dimension = (view.frame.size.width - (2 * space) / 3.0)
+        //let dimension = (view.frame.size.width - (2 * space) / 3.0)
         
-        /*
-        let dimensionWidth = (view.frame.size.width - (2 * space) / 3.0)
-        let dimensionHeight = (view.frame.size.height - (2 * space) / 3.0)
-*/
+        
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
@@ -44,9 +41,7 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
         
         
         flowLayout.itemSize = CGSizeMake(100.0, 100.0)
-        
-        //let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        //memes = applicationDelegate.memes
+ 
         
         
         print(memes.count)
@@ -82,7 +77,7 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
         //memeCell.backgroundView = imageView
       //  memeCell.memeImageView.contentMode = .ScaleAspectFit
         
-        memeCell.backgroundColor = UIColor.yellowColor()
+        //memeCell.backgroundColor = UIColor.yellowColor()
         
         memeCell.memeImageView.image = meme.memedImage
         

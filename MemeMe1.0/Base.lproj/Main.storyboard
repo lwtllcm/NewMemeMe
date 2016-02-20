@@ -305,22 +305,37 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxc-Vn-UNC">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="23" y="20" width="80" height="65"/>
-                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="dxc-Vn-UNC" secondAttribute="trailing" constant="-8" id="0V4-bg-i83"/>
+                                    <constraint firstItem="dxc-Vn-UNC" firstAttribute="leading" secondItem="TFp-xG-Md5" secondAttribute="leadingMargin" constant="-8" id="b79-WP-USd"/>
+                                    <constraint firstItem="dxc-Vn-UNC" firstAttribute="top" secondItem="TFp-xG-Md5" secondAttribute="topMargin" constant="-8" id="oyy-oI-AxH"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="dxc-Vn-UNC" secondAttribute="bottom" constant="-8" id="uUG-7P-ydG"/>
+                                </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="dxc-Vn-UNC"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="0V4-bg-i83"/>
+                                        <exclude reference="b79-WP-USd"/>
+                                        <exclude reference="oyy-oI-AxH"/>
+                                        <exclude reference="uUG-7P-ydG"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="dxc-Vn-UNC"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="0V4-bg-i83"/>
+                                        <include reference="b79-WP-USd"/>
+                                        <include reference="oyy-oI-AxH"/>
+                                        <include reference="uUG-7P-ydG"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -363,24 +378,21 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RA1-Al-OIx">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="20" y="75" width="360" height="290"/>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RA1-Al-OIx" firstAttribute="leading" secondItem="puO-55-auQ" secondAttribute="leadingMargin" id="YSZ-UR-gou"/>
-                            <constraint firstItem="RA1-Al-OIx" firstAttribute="trailing" secondItem="puO-55-auQ" secondAttribute="trailingMargin" id="jeR-O1-T1W"/>
-                            <constraint firstItem="RA1-Al-OIx" firstAttribute="top" secondItem="cSA-Ch-PeZ" secondAttribute="bottom" constant="55" id="pmz-Wh-buN"/>
-                            <constraint firstItem="UAk-pe-tAl" firstAttribute="top" secondItem="RA1-Al-OIx" secondAttribute="bottom" constant="235" id="vEb-Uu-Qao"/>
+                            <constraint firstItem="RA1-Al-OIx" firstAttribute="trailing" secondItem="puO-55-auQ" secondAttribute="trailingMargin" id="AUe-eP-nIz"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="RA1-Al-OIx"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="vEb-Uu-Qao"/>
-                                <exclude reference="YSZ-UR-gou"/>
-                                <exclude reference="jeR-O1-T1W"/>
-                                <exclude reference="pmz-Wh-buN"/>
+                                <exclude reference="AUe-eP-nIz"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -388,10 +400,7 @@
                                 <include reference="RA1-Al-OIx"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="vEb-Uu-Qao"/>
-                                <include reference="YSZ-UR-gou"/>
-                                <include reference="jeR-O1-T1W"/>
-                                <include reference="pmz-Wh-buN"/>
+                                <include reference="AUe-eP-nIz"/>
                             </mask>
                         </variation>
                     </view>
