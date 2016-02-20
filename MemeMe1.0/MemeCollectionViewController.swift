@@ -18,6 +18,7 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
     }
     
        
+    @IBOutlet var collectionView: UICollectionView!
 
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
    
@@ -31,9 +32,18 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
         let space: CGFloat = 3.0
         let dimension = (view.frame.size.width - (2 * space) / 3.0)
         
+        /*
+        let dimensionWidth = (view.frame.size.width - (2 * space) / 3.0)
+        let dimensionHeight = (view.frame.size.height - (2 * space) / 3.0)
+*/
+        
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        
+        //flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        
+        
+        flowLayout.itemSize = CGSizeMake(100.0, 100.0)
         
         //let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         //memes = applicationDelegate.memes
@@ -48,7 +58,11 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = false
         print(memes.count)
+        self.collectionView.reloadData()
+
     }
+    
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("collectionView numberOfItemsInSection")
@@ -66,6 +80,10 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
         //let imageView = UIImageView(image: meme.memedImage)
     
         //memeCell.backgroundView = imageView
+      //  memeCell.memeImageView.contentMode = .ScaleAspectFit
+        
+        memeCell.backgroundColor = UIColor.yellowColor()
+        
         memeCell.memeImageView.image = meme.memedImage
         
         

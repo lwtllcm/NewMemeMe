@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
        
         print(meme)
+        detailImageView.contentMode = .ScaleAspectFit
         detailImageView.image = meme?.memedImage
         
         
