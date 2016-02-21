@@ -38,8 +38,8 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
     override func viewWillAppear(animated: Bool) {
         print("MemeCollectionViewController viewWillAppear")
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.hidden = false
-        self.collectionView.reloadData()
+        tabBarController?.tabBar.hidden = false
+        collectionView.reloadData()
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -68,6 +68,6 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
     let detailViewController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
     let meme = memes[indexPath.row]
     detailViewController.meme = meme
-    self.navigationController?.pushViewController(detailViewController, animated: true)
+    navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

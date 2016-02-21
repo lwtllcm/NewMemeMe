@@ -44,19 +44,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         imagePickerView.backgroundColor = UIColor.blackColor()
         
-        topText.backgroundColor = UIColor.clearColor()
-        topText.defaultTextAttributes = memeTextAttributes
-        topText.textAlignment = NSTextAlignment.Center
+        setTextFields(topText)
         topText.text = "TOP"
-        topText.adjustsFontSizeToFitWidth = true
-        topText.delegate = testTextFieldDelegate
         
-        bottomText.defaultTextAttributes = memeTextAttributes
-        bottomText.backgroundColor = UIColor.clearColor()
+        setTextFields(bottomText)
         bottomText.text = "BOTTOM"
-        bottomText.textAlignment = NSTextAlignment.Center
-        bottomText.adjustsFontSizeToFitWidth = true
-        bottomText.delegate = testTextFieldDelegate
         
         shareButton.enabled = false
     }
@@ -76,21 +68,41 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         unsubscribeFromKeyboardNotifications()
     }
     
+    func setTextFields(textField:UITextField) {
+        print("setTextFields")
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.backgroundColor = UIColor.clearColor()
+
+        textField.textAlignment = NSTextAlignment.Center
+        textField.adjustsFontSizeToFitWidth = true
+        textField.delegate = testTextFieldDelegate
+    }
+
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     //pick image methods
     
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
         print("pickAnImagefromAlbum")
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(imagePicker, animated: true, completion: nil)
+        pickImage("Album")
     }
     
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
         print("pickAnImagefromCamera")
+        pickImage("Camera")
+    }
+    
+    func pickImage(albumOrCamera:NSString) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        if albumOrCamera == "Camera" {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        }
+        else {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
         presentViewController(imagePicker, animated: true, completion: nil)
     }
 
@@ -98,6 +110,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
          print("didFinishPickingImage")
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
         imagePickerView.image = image
+        imagePickerView.contentMode = .ScaleAspectFit
+
         }
         
         dismissViewControllerAnimated(true, completion:{() -> Void in
@@ -121,7 +135,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func keyboardWillHide(notification: NSNotification) {
         print("keyboardWillHide")
+        if bottomText.isFirstResponder() {
         view.frame.origin.y = 0.0
+       }
     }
 
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
@@ -209,7 +225,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     @IBAction func cancelButtonAction(sender: AnyObject) {
         print("cancelButtonAction")
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
            }
 }

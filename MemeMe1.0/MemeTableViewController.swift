@@ -65,7 +65,7 @@ class  MemeTableViewController : UIViewController, UITableViewDelegate, UITableV
         let detailViewController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         let meme = memes[indexPath.row]
         detailViewController.meme = meme
-        self.navigationController?.pushViewController(detailViewController, animated: true)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
