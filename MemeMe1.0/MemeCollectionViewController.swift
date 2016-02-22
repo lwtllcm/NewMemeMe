@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class  MemeCollectionViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-   
+    
     var memes:[Meme] {
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
@@ -18,9 +18,9 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
     }
     
     @IBOutlet var collectionView: UICollectionView!
-
+    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MemeCollectionViewController viewDidLoad")
@@ -63,11 +63,11 @@ class  MemeCollectionViewController : UIViewController, UICollectionViewDataSour
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    print("didSelectItemAtIndexPath")
-    
-    let detailViewController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
-    let meme = memes[indexPath.row]
-    detailViewController.meme = meme
-    navigationController?.pushViewController(detailViewController, animated: true)
+        print("didSelectItemAtIndexPath")
+        
+        let detailViewController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        let meme = memes[indexPath.row]
+        detailViewController.meme = meme
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

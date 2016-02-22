@@ -91,7 +91,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="zUX-Pu-Ziy" secondAttribute="trailing" constant="-20" id="qYO-ZA-VrM"/>
                             <constraint firstItem="9hQ-ts-3xT" firstAttribute="leading" secondItem="fIR-C6-rR4" secondAttribute="leadingMargin" constant="-20" id="r6c-3D-tfC"/>
                             <constraint firstItem="pgU-8X-b5f" firstAttribute="top" secondItem="pDM-po-xdg" secondAttribute="bottom" id="yB5-Uw-nQk"/>
-                            <constraint firstItem="zUX-Pu-Ziy" firstAttribute="top" secondItem="WKb-pZ-J03" secondAttribute="bottom" constant="92" id="zon-aS-vZX"/>
+                            <constraint firstItem="zUX-Pu-Ziy" firstAttribute="top" secondItem="WKb-pZ-J03" secondAttribute="bottom" constant="10" id="zon-aS-vZX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -102,22 +102,22 @@
                                 <exclude reference="2bY-rd-bOP"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="TT6-Ea-NSb"/>
-                                <exclude reference="r6c-3D-tfC"/>
-                                <exclude reference="HoN-43-bSA"/>
-                                <exclude reference="Wpn-qZ-25I"/>
-                                <exclude reference="d6F-m0-SIM"/>
                                 <exclude reference="LUU-kD-hkx"/>
                                 <exclude reference="ORV-1n-6YF"/>
                                 <exclude reference="kp5-km-ujC"/>
                                 <exclude reference="Q3F-F1-6yk"/>
                                 <exclude reference="mDG-L4-YM8"/>
-                                <exclude reference="USH-zL-BTg"/>
-                                <exclude reference="qYO-ZA-VrM"/>
-                                <exclude reference="zon-aS-vZX"/>
+                                <exclude reference="TT6-Ea-NSb"/>
+                                <exclude reference="r6c-3D-tfC"/>
                                 <exclude reference="4ri-zH-zZ3"/>
                                 <exclude reference="Od3-WM-8bk"/>
                                 <exclude reference="yB5-Uw-nQk"/>
+                                <exclude reference="USH-zL-BTg"/>
+                                <exclude reference="qYO-ZA-VrM"/>
+                                <exclude reference="zon-aS-vZX"/>
+                                <exclude reference="HoN-43-bSA"/>
+                                <exclude reference="Wpn-qZ-25I"/>
+                                <exclude reference="d6F-m0-SIM"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -129,22 +129,22 @@
                                 <include reference="2bY-rd-bOP"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="TT6-Ea-NSb"/>
-                                <include reference="r6c-3D-tfC"/>
-                                <include reference="HoN-43-bSA"/>
-                                <include reference="Wpn-qZ-25I"/>
-                                <include reference="d6F-m0-SIM"/>
                                 <include reference="LUU-kD-hkx"/>
                                 <include reference="ORV-1n-6YF"/>
                                 <include reference="kp5-km-ujC"/>
                                 <include reference="Q3F-F1-6yk"/>
                                 <include reference="mDG-L4-YM8"/>
-                                <include reference="USH-zL-BTg"/>
-                                <include reference="qYO-ZA-VrM"/>
-                                <include reference="zon-aS-vZX"/>
+                                <include reference="TT6-Ea-NSb"/>
+                                <include reference="r6c-3D-tfC"/>
                                 <include reference="4ri-zH-zZ3"/>
                                 <include reference="Od3-WM-8bk"/>
                                 <include reference="yB5-Uw-nQk"/>
+                                <include reference="USH-zL-BTg"/>
+                                <include reference="qYO-ZA-VrM"/>
+                                <include reference="zon-aS-vZX"/>
+                                <include reference="HoN-43-bSA"/>
+                                <include reference="Wpn-qZ-25I"/>
+                                <include reference="d6F-m0-SIM"/>
                             </mask>
                         </variation>
                     </view>

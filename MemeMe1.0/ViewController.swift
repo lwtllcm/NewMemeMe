@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var bottomText: UITextField!
     
     //delegate
-    let testTextFieldDelegate = TestTextFieldDelegate()
+    let textFieldDelegate = TextFieldDelegate()
     
     //memeTextAttributes
     let memeTextAttributes = [
@@ -72,12 +72,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         print("setTextFields")
         textField.defaultTextAttributes = memeTextAttributes
         textField.backgroundColor = UIColor.clearColor()
-
+        
         textField.textAlignment = NSTextAlignment.Center
         textField.adjustsFontSizeToFitWidth = true
-        textField.delegate = testTextFieldDelegate
+        textField.delegate = textFieldDelegate
     }
-
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -86,32 +86,30 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
         print("pickAnImagefromAlbum")
-        pickImage("Album")
+        let sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        pickImage(sourceType)
     }
     
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
         print("pickAnImagefromCamera")
-        pickImage("Camera")
+        let sourceType = UIImagePickerControllerSourceType.Camera
+        pickImage(sourceType)
+        
     }
     
-    func pickImage(albumOrCamera:NSString) {
+    func pickImage(sourceImageType:UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        if albumOrCamera == "Camera" {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        }
-        else {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        }
+        imagePicker.sourceType = sourceImageType
         presentViewController(imagePicker, animated: true, completion: nil)
     }
-
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-         print("didFinishPickingImage")
+        print("didFinishPickingImage")
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-        imagePickerView.image = image
-        imagePickerView.contentMode = .ScaleAspectFit
-
+            imagePickerView.image = image
+            imagePickerView.contentMode = .ScaleAspectFit
+            
         }
         
         dismissViewControllerAnimated(true, completion:{() -> Void in
@@ -129,17 +127,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     func keyboardWillShow(notification: NSNotification) {
         print("keyboardWillShow")
         if bottomText.isFirstResponder() {
-        view.frame.origin.y = getKeyboardHeight(notification) * -1
+            view.frame.origin.y = getKeyboardHeight(notification) * -1
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         print("keyboardWillHide")
         if bottomText.isFirstResponder() {
-        view.frame.origin.y = 0.0
-       }
+            view.frame.origin.y = 0.0
+        }
     }
-
+    
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
         print("getKeyboardHeight")
         let userInfo = notification.userInfo
@@ -217,14 +215,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             if completed {
                 self.saveMeme()
                 self.dismissViewControllerAnimated(true, completion: nil)
-                }
             }
+        }
         
         presentViewController(shareController, animated: true, completion: nil)
-     }
+    }
     
     @IBAction func cancelButtonAction(sender: AnyObject) {
         print("cancelButtonAction")
         dismissViewControllerAnimated(true, completion: nil)
-           }
+    }
 }

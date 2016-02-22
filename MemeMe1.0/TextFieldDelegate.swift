@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class  TestTextFieldDelegate: NSObject, UITextFieldDelegate {
+class  TextFieldDelegate: NSObject, UITextFieldDelegate {
     
     override init() {
         super.init()

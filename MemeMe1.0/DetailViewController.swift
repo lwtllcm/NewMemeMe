@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     var meme: Meme?
     
     @IBOutlet weak var detailImageView: UIImageView!
@@ -18,13 +18,13 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("DetailViewController viewDidLoad")
-     }
-
+    }
+    
     override func viewWillAppear(animated: Bool) {
         print("DetailViewController viewWillAppear")
         super.viewWillAppear(animated)
         detailImageView.contentMode = .ScaleAspectFit
         detailImageView.image = meme?.memedImage
-        }
+    }
 }
 
