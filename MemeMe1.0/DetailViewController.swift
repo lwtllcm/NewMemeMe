@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var detailImageView: UIImageView!
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("DetailViewController viewDidLoad")
@@ -23,8 +25,23 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         print("DetailViewController viewWillAppear")
         super.viewWillAppear(animated)
+       tabBarController?.tabBar.hidden = true
+
         detailImageView.contentMode = .ScaleAspectFit
         detailImageView.image = meme?.memedImage
+    }
+    
+    @IBAction func editAction(sender: AnyObject) {
+        print("editAction")
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print("didSelectItemAtIndexPath")
+        
+        let detailViewController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        //let meme = memes[indexPath.row]
+        detailViewController.meme = meme
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 

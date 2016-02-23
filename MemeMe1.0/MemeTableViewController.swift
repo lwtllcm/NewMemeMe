@@ -67,5 +67,35 @@ class  MemeTableViewController : UIViewController, UITableViewDelegate, UITableV
         detailViewController.meme = meme
         navigationController?.pushViewController(detailViewController, animated: true)
     }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        print("commitEditingStyle")
+        if editingStyle == .Delete {
+            
+            //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            let object = UIApplication.sharedApplication().delegate
+            let appDelegate = object as! AppDelegate
+            appDelegate.memes.removeAtIndex(indexPath.row)
+            print("item removed from appDelegate.memes")
+            
+            var memes:[Meme] {
+                let object = UIApplication.sharedApplication().delegate
+                let appDelegate = object as! AppDelegate
+                return appDelegate.memes
+            }
+            
+            tableView.reloadData()
+            
+        }
+        else {
+            print("other Editing Style")
+        }
+        
+    }
 }
 
