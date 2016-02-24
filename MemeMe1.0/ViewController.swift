@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var meme: Meme?
+    
     //outlets
     @IBOutlet weak var imagePickerView: UIImageView!
     
@@ -42,6 +44,27 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         super.viewDidLoad()
         print("viewDidLoad")
         
+        if let image = meme?.originalImage {
+            print("meme passed")
+            imagePickerView.backgroundColor = UIColor.blackColor()
+            imagePickerView.image = image
+            setTextFields(topText)
+
+            topText.text = " "
+            topText.enabled = true
+            
+            setTextFields(bottomText)
+
+            bottomText.text = " "
+            bottomText.enabled = true
+            imagePickerView.contentMode = .ScaleAspectFit
+            navigationController?.navigationBarHidden = false
+            
+            shareButton.enabled = true
+            cancelButton.enabled = true
+        }
+        else {
+        
         imagePickerView.backgroundColor = UIColor.blackColor()
         
         setTextFields(topText)
@@ -49,8 +72,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         setTextFields(bottomText)
         bottomText.text = "BOTTOM"
-        
         shareButton.enabled = false
+        }
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -111,6 +136,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             imagePickerView.contentMode = .ScaleAspectFit
             
         }
+        
+     
         
         dismissViewControllerAnimated(true, completion:{() -> Void in
             self.shareButton.enabled = true

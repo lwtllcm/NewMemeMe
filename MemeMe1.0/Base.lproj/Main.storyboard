@@ -379,74 +379,52 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RA1-Al-OIx">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpB-Xq-H2s">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title=" " id="Bjv-HD-cm2">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" id="lPk-sH-pyZ">
-                                            <connections>
-                                                <action selector="editAction:" destination="SMa-Zo-N8d" id="vUR-1u-CGf"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RA1-Al-OIx" firstAttribute="top" secondItem="cpB-Xq-H2s" secondAttribute="bottom" id="3Nh-qL-laT"/>
-                            <constraint firstItem="cpB-Xq-H2s" firstAttribute="leading" secondItem="puO-55-auQ" secondAttribute="leadingMargin" constant="-20" id="7hS-li-rDC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cpB-Xq-H2s" secondAttribute="trailing" constant="-20" id="BFE-va-8eS"/>
-                            <constraint firstItem="RA1-Al-OIx" firstAttribute="leading" secondItem="puO-55-auQ" secondAttribute="leadingMargin" constant="-20" id="Bfa-dP-L0t"/>
-                            <constraint firstItem="cpB-Xq-H2s" firstAttribute="top" secondItem="puO-55-auQ" secondAttribute="topMargin" id="GSL-Ix-0s7"/>
-                            <constraint firstItem="cpB-Xq-H2s" firstAttribute="leading" secondItem="puO-55-auQ" secondAttribute="leadingMargin" constant="-20" id="KJO-wA-Yz0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RA1-Al-OIx" secondAttribute="trailing" constant="-20" id="LIA-VH-D57"/>
-                            <constraint firstItem="UAk-pe-tAl" firstAttribute="top" secondItem="RA1-Al-OIx" secondAttribute="bottom" id="McV-56-5uz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cpB-Xq-H2s" secondAttribute="trailing" constant="-20" id="s8K-Gu-Qff"/>
+                            <constraint firstItem="RA1-Al-OIx" firstAttribute="leading" secondItem="puO-55-auQ" secondAttribute="leadingMargin" constant="-20" id="51a-CP-rkd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RA1-Al-OIx" secondAttribute="trailing" constant="-20" id="OrW-aN-0mK"/>
+                            <constraint firstItem="RA1-Al-OIx" firstAttribute="top" secondItem="puO-55-auQ" secondAttribute="topMargin" id="a9t-aw-USV"/>
+                            <constraint firstItem="UAk-pe-tAl" firstAttribute="top" secondItem="RA1-Al-OIx" secondAttribute="bottom" id="p4o-lb-WzX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="RA1-Al-OIx"/>
-                                <exclude reference="cpB-Xq-H2s"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="7hS-li-rDC"/>
-                                <exclude reference="BFE-va-8eS"/>
-                                <exclude reference="GSL-Ix-0s7"/>
-                                <exclude reference="KJO-wA-Yz0"/>
-                                <exclude reference="s8K-Gu-Qff"/>
-                                <exclude reference="3Nh-qL-laT"/>
-                                <exclude reference="Bfa-dP-L0t"/>
-                                <exclude reference="LIA-VH-D57"/>
-                                <exclude reference="McV-56-5uz"/>
+                                <exclude reference="p4o-lb-WzX"/>
+                                <exclude reference="51a-CP-rkd"/>
+                                <exclude reference="OrW-aN-0mK"/>
+                                <exclude reference="a9t-aw-USV"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="RA1-Al-OIx"/>
-                                <include reference="cpB-Xq-H2s"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="7hS-li-rDC"/>
-                                <include reference="BFE-va-8eS"/>
-                                <include reference="GSL-Ix-0s7"/>
-                                <include reference="KJO-wA-Yz0"/>
-                                <include reference="s8K-Gu-Qff"/>
-                                <include reference="3Nh-qL-laT"/>
-                                <include reference="Bfa-dP-L0t"/>
-                                <include reference="LIA-VH-D57"/>
-                                <include reference="McV-56-5uz"/>
+                                <include reference="p4o-lb-WzX"/>
+                                <include reference="51a-CP-rkd"/>
+                                <include reference="OrW-aN-0mK"/>
+                                <include reference="a9t-aw-USV"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="1mU-8m-FM2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Hf9-qB-Pic">
+                            <connections>
+                                <action selector="editAction:" destination="SMa-Zo-N8d" id="cBr-H7-d1s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailImageView" destination="RA1-Al-OIx" id="66u-sB-XKq"/>
-                        <outlet property="editButton" destination="lPk-sH-pyZ" id="nIp-Wm-31Q"/>
+                        <outlet property="editButton" destination="Hf9-qB-Pic" id="oLZ-Wr-Q7Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhL-hM-Afz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1918.5" y="1258"/>
+            <point key="canvasLocation" x="2953.5" y="1314"/>
         </scene>
         <!--Table-->
         <scene sceneID="jQe-vu-tiY">
@@ -486,8 +464,26 @@
             </objects>
             <point key="canvasLocation" x="157.5" y="1236"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yhT-Fv-l1P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KKO-Ym-mjl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lK3-zZ-dcv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SMa-Zo-N8d" kind="relationship" relationship="rootViewController" id="sle-Ur-ups"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mLf-2E-30b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2035.5" y="1314"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dqo-dr-tzi"/>
+        <segue reference="hzV-sV-NFN"/>
     </inferredMetricsTieBreakers>
 </document>
