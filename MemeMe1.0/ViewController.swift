@@ -58,6 +58,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             bottomText.text = " "
             bottomText.enabled = true
             imagePickerView.contentMode = .ScaleAspectFit
+            
             navigationController?.navigationBarHidden = false
             
             shareButton.enabled = true
