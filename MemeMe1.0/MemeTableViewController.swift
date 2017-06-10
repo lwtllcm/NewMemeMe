@@ -10,7 +10,7 @@ import UIKit
 class  MemeTableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var memes:[Meme] {
-        let object = UIApplication.sharedApplication().delegate
+        let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
@@ -22,7 +22,7 @@ class  MemeTableViewController : UIViewController, UITableViewDelegate, UITableV
         print("MemeTableViewController viewDidLoad")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         print("MemeTableViewController viewWillAppear")
         super.viewWillAppear(animated)
         if memes.count > 0 {
@@ -31,18 +31,18 @@ class  MemeTableViewController : UIViewController, UITableViewDelegate, UITableV
         tableView.reloadData()
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("cellForRowAtIndexPath")
         
-        let memeCell = tableView.dequeueReusableCellWithIdentifier("MemeCell")!
+        let memeCell = tableView.dequeueReusableCell(withIdentifier: "MemeCell")!
         
         let meme = memes[indexPath.row]
         memeCell.textLabel?.text = meme.memeTopText as String
@@ -51,40 +51,40 @@ class  MemeTableViewController : UIViewController, UITableViewDelegate, UITableV
         return memeCell
     }
     
-    @IBAction func addMeme(sender: AnyObject) {
+    @IBAction func addMeme(_ sender: AnyObject) {
         print("addMeme")
         
         let viewController = ViewController()
         
-        presentViewController(viewController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelectRowAtIndexPath")
         
-        let detailViewController = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        let detailViewController = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         let meme = memes[indexPath.row]
         detailViewController.meme = meme
         navigationController?.pushViewController(detailViewController, animated: true)
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         print("commitEditingStyle")
-        if editingStyle == .Delete {
+        if editingStyle == .delete {
             
             //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
-            let object = UIApplication.sharedApplication().delegate
+            let object = UIApplication.shared.delegate
             let appDelegate = object as! AppDelegate
-            appDelegate.memes.removeAtIndex(indexPath.row)
+            appDelegate.memes.remove(at: indexPath.row)
             print("item removed from appDelegate.memes")
             
             var memes:[Meme] {
-                let object = UIApplication.sharedApplication().delegate
+                let object = UIApplication.shared.delegate
                 let appDelegate = object as! AppDelegate
                 return appDelegate.memes
             }

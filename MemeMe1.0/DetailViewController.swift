@@ -22,20 +22,20 @@ class DetailViewController: UIViewController {
         print("DetailViewController viewDidLoad")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         print("DetailViewController viewWillAppear")
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.hidden = true
-        editButton.enabled = true
+        tabBarController?.tabBar.isHidden = true
+        editButton.isEnabled = true
 
-        detailImageView.contentMode = .ScaleAspectFit
+        detailImageView.contentMode = .scaleAspectFit
         detailImageView.image = meme?.memedImage
         
     }
     
-    @IBAction func editAction(sender: AnyObject) {
+    @IBAction func editAction(_ sender: AnyObject) {
         print("editAction")
-        let viewController = storyboard!.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let viewController = storyboard!.instantiateViewController(withIdentifier: "ViewController") as! ViewController
 
         viewController.meme = meme
         navigationController?.pushViewController(viewController, animated: true)
