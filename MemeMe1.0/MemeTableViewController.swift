@@ -72,6 +72,8 @@ class  MemeTableViewController : UIViewController, UITableViewDelegate, UITableV
         return true
     }
     
+    
+    // commit editingStyle
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         print("commitEditingStyle")
         if editingStyle == .delete {
